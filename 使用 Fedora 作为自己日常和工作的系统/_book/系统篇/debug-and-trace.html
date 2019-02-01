@@ -1,0 +1,479 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.3 系统调试 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../环境篇/chapter1.1.md" />
+    
+    
+    <link rel="prev" href="chapter1.2.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">第一章 系统篇</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1.1.md">
+            
+                <span>
+            
+                    
+                    1.1 安装 Fedora
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter1.2.md">
+            
+                <span>
+            
+                    
+                    1.2 系统优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="debug-and-trace.html">
+            
+                <a href="debug-and-trace.html">
+            
+                    
+                    1.3 系统调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二章 环境篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../环境篇/chapter1.1.md">
+            
+                <span>
+            
+                    
+                    1.1 MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../环境篇/chapter1.2.md">
+            
+                <span>
+            
+                    
+                    1.2 Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../环境篇/nodejs.html">
+            
+                <a href="../环境篇/nodejs.html">
+            
+                    
+                    1.3 Node.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二章 软件篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../软件篇/readme.md">
+            
+                <span>
+            
+                    
+                    2.1 文字办公
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../软件篇/wps.md">
+            
+                <span>
+            
+                    
+                    2.1.1 WPS - 办公套件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../软件篇/readme.md">
+            
+                <span>
+            
+                    
+                    2.2 播放器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../软件篇/netease-cloud-music.html">
+            
+                <a href="../软件篇/netease-cloud-music.html">
+            
+                    
+                    2.1.1 网易云音乐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.3 系统调试</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="linux-&#x7CFB;&#x7EDF;&#x4E0B;&#x8C03;&#x8BD5;&#x4E0E;&#x8FFD;&#x8E2A;&#x8FDB;&#x7A0B;">Linux &#x7CFB;&#x7EDF;&#x4E0B;&#x8C03;&#x8BD5;&#x4E0E;&#x8FFD;&#x8E2A;&#x8FDB;&#x7A0B;</h1>
+<h2 id="ps">ps</h2>
+<p>ps -ef | grep mysql</p>
+<h2 id="pstack">pstack</h2>
+<p>pstack &#x8FDB;&#x7A0B;ID</p>
+<h2 id="strace">strace</h2>
+<p>strace -cp <pid></pid></p>
+<p>-p : &#x6307;&#x5B9A;&#x8FFD;&#x8E2A;&#x7684;&#x8FDB;&#x7A0B;ID
+-f : &#x8DDF;&#x8E2A;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#xFF0C;&#x4EE5;&#x53CA;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x7684;&#x6240;&#x6709;&#x5B50;&#x8FDB;&#x7A0B;
+-T : &#x5728;&#x6BCF;&#x884C;&#x8BED;&#x53E5;&#x540E;&#x9762;&#x663E;&#x793A;&#x6BCF;&#x6B21;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6240;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x5982;&#xFF1A;<0.000020>
+-c : &#x6C47;&#x603B;&#x663E;&#x793A;&#x7CFB;&#x7EDF;&#x8C03;&#x7528; syscall &#x7684;&#x8017;&#x65F6;&#x548C;&#x8C03;&#x7528;&#x60C5;&#x51B5;
+-o : &#x628A; strace &#x7684;&#x8F93;&#x51FA;&#x5355;&#x72EC;&#x5199;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;
+-tt : &#x5728;&#x6BCF;&#x884C;&#x8F93;&#x51FA;&#x7684;&#x524D;&#x9762;&#xFF0C;&#x663E;&#x793A;&#x5F53;&#x524D;&#x6267;&#x884C;&#x7684;&#x6BEB;&#x79D2;&#x7EA7;&#x522B;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x5982;&#xFF1A;[pid 27344] 11:37:56.489705</0.000020></p>
+<p>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x7528; strace &#x8DDF;&#x8E2A;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x5F80;&#x5F80;&#x662F;&#x6EE1;&#x5C4F;&#x7FFB;&#x6EDA;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x901A;&#x8FC7;&#x300C;c&#x300D;&#x9009;&#x9879;&#x7528;&#x6765;&#x6C47;&#x603B;&#x5404;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x603B;&#x8017;&#x65F6;&#xFF0C;&#x5F97;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>&gt; strace -cp 28712
+strace: Process 28712 attached
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 71.41    0.497539           2    233910           getpid
+  6.45    0.044948          14      3136           socket
+  5.28    0.036760           3      9545      6210 openat
+  3.65    0.025424           2     12420           fcntl
+  2.92    0.020316           3      6471           close
+  2.39    0.016647           5      3136      3136 connect
+  1.29    0.009013           2      3105           read
+  1.24    0.008666           5      1610      1610 chown
+  1.14    0.007910           2      3335           fstat
+  1.05    0.007289           5      1380           stat
+  0.86    0.005967          17       345           sendto
+  0.80    0.005569           2      2185           poll
+  0.75    0.005231           2      2185           recvfrom
+  0.42    0.002948          12       230           write
+  0.15    0.001065           9       114           nanosleep
+  0.14    0.000981           2       460           lseek
+  0.07    0.000462           2       230           geteuid
+  0.00    0.000006           6         1           restart_syscall
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.696741                283798     10956 total
+</code></pre><p>&#x5982;&#x679C;&#x60F3;&#x8DDF;&#x8E2A; chown &#x64CD;&#x4F5C;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x901A;&#x8FC7;&#x300C;e&#x300D;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x8DDF;&#x8E2A;&#x67D0;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x901A;&#x8FC7;&#x300C;T&#x300D;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x5B9E;&#x9645;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#xFF1A;</p>
+<pre><code>&gt; strace -T -e chown -p 26774
+strace: Process 26774 attached
+chown(&quot;/home/html/runtime/log/201901&quot;, 1002, -1) = -1 EPERM (Operation not permitted) &lt;0.000020&gt;
+chown(&quot;/home/html/runtime/log/201901&quot;, 1002, -1) = -1 EPERM (Operation not permitted) &lt;0.000012&gt;
+chown(&quot;/home/html/runtime/log/201901&quot;, -1, 1002) = -1 EPERM (Operation not permitted) &lt;0.000008&gt;
+chown(&quot;/home/html/runtime/log/201901&quot;, 1002, -1) = -1 EPERM (Operation not permitted) &lt;0.000026&gt;
+chown(&quot;/home/html/runtime/log/201901&quot;, -1, 1002) = -1 EPERM (Operation not permitted) &lt;0.000011&gt;
+</code></pre><h2 id="gdb">gdb</h2>
+<p>&#x8FDB;&#x5165; gdb</p>
+<pre><code>&gt; gdb
+GNU gdb (GDB) Fedora 8.1-11.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-redhat-linux-gnu&quot;.
+Type &quot;show configuration&quot; for configuration details.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+&lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+For help, type &quot;help&quot;.
+Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;.
+(gdb)
+</code></pre><p>&#x9644;&#x52A0;&#x8C03;&#x8BD5;&#x8FDB;&#x7A0B; attach &lt;&#x8FDB;&#x7A0B;PID&gt;</p>
+<pre><code>(gdb) attach 27943
+Attaching to process 27943
+Reading symbols from /usr/local/php72/bin/php...done.
+Reading symbols from /lib64/libcrypt.so.1...Reading symbols from /lib64/libcrypt.so.1...(no debugging symbols found)...done.
+(no debugging symbols found)...done.
+Reading symbols from /lib64/libz.so.1...Reading symbols from /lib64/libz.so.1...warning: Loadable section &quot;.note.gnu.property&quot; outside of ELF segments
+(no debugging symbols found)...done.
+(no debugging symbols found)...done.
+Reading symbols from /lib64/libresolv.so.2...(no debugging symbols found)...done.
+Reading symbols from /lib64/librt.so.1...(no debugging symbols found)...done.
+Reading symbols from /lib64/libpng15.so.15...Reading symbols from /lib64/libpng15.so.15...(no debugging symbols found)...done.
+......
+(gdb)
+</code></pre><p>&#x67E5;&#x770B;&#x5806;&#x6808;&#x4FE1;&#x606F;</p>
+<pre><code>(gdb) bt
+#0  0x00007fdf068788d4 in nanosleep () from /lib64/libc.so.6
+#1  0x00007fdf068a4194 in usleep () from /lib64/libc.so.6
+#2  0x000000000074aeca in zif_usleep (execute_data=&lt;optimized out&gt;, return_value=0x7fff4d55ad30)
+    at /home/vagrant/php-7.2.5/ext/standard/basic_functions.c:4555
+#3  0x00007fdef57fa31d in xdebug_execute_internal (current_execute_data=0x7fdf02221d50, 
+    return_value=0x7fff4d55ad30) at /home/abc/tmp/xdebug/xdebug.c:1977
+......
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter1.2.md" class="navigation navigation-prev " aria-label="Previous page: 1.2 系统优化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../环境篇/chapter1.1.md" class="navigation navigation-next " aria-label="Next page: 1.1 MySQL">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.3 系统调试","level":"1.4","depth":1,"next":{"title":"1.1 MySQL","level":"2.1","depth":1,"path":"环境篇/chapter1.1.md","ref":"环境篇/chapter1.1.md","articles":[]},"previous":{"title":"1.2 系统优化","level":"1.3","depth":1,"path":"系统篇/chapter1.2.md","ref":"系统篇/chapter1.2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"系统篇/debug-and-trace.md","mtime":"2019-02-01T03:38:46.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-01T11:46:57.840Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

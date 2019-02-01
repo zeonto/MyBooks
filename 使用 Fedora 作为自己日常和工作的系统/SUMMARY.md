@@ -4,6 +4,7 @@
 
 * [1.1 安装 Fedora](系统篇/chapter1.1.md)
 * [1.2 系统优化](系统篇/chapter1.2.md)
+* [1.3 系统调试](系统篇/debug-and-trace.md)
 
 ## 第二章 环境篇
 
@@ -15,3 +16,6 @@
 
 * [2.1 文字办公](软件篇/readme.md)
     * [2.1.1 WPS - 办公套件](软件篇/wps.md)
+
+* [2.2 播放器](软件篇/readme.md)
+    * [2.1.1 网易云音乐](软件篇/netease-cloud-music.md)
