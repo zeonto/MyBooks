@@ -1,0 +1,340 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 查询数据 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="mongodb_cudr_query.html" />
+    
+    
+    <link rel="prev" href="mongodb_collection_db.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">一 安装准备</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">二 操作命令</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="mongodb_collection_db.html">
+            
+                <a href="mongodb_collection_db.html">
+            
+                    
+                    2.1 库和集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="mongodb_cudr_query.html">
+            
+                <a href="mongodb_cudr_query.html">
+            
+                    
+                    2.1 查询数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="mongodb_cudr_query.html">
+            
+                <a href="mongodb_cudr_query.html">
+            
+                    
+                    2.1 插入数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="mongodb_cudr_query.html">
+            
+                <a href="mongodb_cudr_query.html">
+            
+                    
+                    2.1 更新数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5" data-path="mongodb_cudr_query.html">
+            
+                <a href="mongodb_cudr_query.html">
+            
+                    
+                    2.1 删除操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 查询数据</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="query-&#x67E5;&#x8BE2;">Query &#x67E5;&#x8BE2;</h2>
+<p>&#x5173;&#x952E;&#x547D;&#x4EE4;&#xFF1A;<code>.find()</code></p>
+<p>&#x67E5;&#x8BE2;&#x6240;&#x6709;</p>
+<pre><code>db.Player.find()
+db.getCollection(&apos;Player&apos;).find()
+db.getCollection(&apos;Player&apos;).find({})
+</code></pre><p>&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</p>
+<pre><code>db.collection.find({key:value})
+db.getCollection(&apos;Player&apos;).find({playerId:15494})
+db.getCollection(&apos;Player&apos;).find({platform:&apos;test&apos;, account:&apos;gj8&apos;})
+</code></pre><h2 id="insert-&#x63D2;&#x5165;">Insert &#x63D2;&#x5165;</h2>
+<p>&#x5173;&#x952E;&#x547D;&#x4EE4;&#xFF1A;<code>.insertOne()</code> &#x3001;<code>.insertMany()</code></p>
+<p>&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6587;&#x6863; <code>db.collection.insertOne()</code></p>
+<p>&#x63D2;&#x5165;&#x591A;&#x4E2A;&#x6587;&#x6863; <code>db.collection.insertMany()</code></p>
+<p>&#x63D2;&#x5165;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-shell">db.collection.insertMany([
+   { item: &quot;journal&quot;, qty: 25, size: { h: 14, w: 21, uom: &quot;cm&quot; }, status: &quot;A&quot; },
+   { item: &quot;notebook&quot;, qty: 50, size: { h: 8.5, w: 11, uom: &quot;in&quot; }, status: &quot;A&quot; },
+   { item: &quot;paper&quot;, qty: 100, size: { h: 8.5, w: 11, uom: &quot;in&quot; }, status: &quot;D&quot; },
+   { item: &quot;planner&quot;, qty: 75, size: { h: 22.85, w: 30, uom: &quot;cm&quot; }, status: &quot;D&quot; },
+   { item: &quot;postcard&quot;, qty: 45, size: { h: 10, w: 15.25, uom: &quot;cm&quot; }, status: &quot;A&quot; }
+]);
+</code></pre>
+<h2 id="update-&#x66F4;&#x65B0;">Update &#x66F4;&#x65B0;</h2>
+<p>&#x5173;&#x952E;&#x547D;&#x4EE4;&#xFF1A;<code>.updateOne()</code> &#x3001;<code>.updateMany()</code></p>
+<p>&#x66F4;&#x65B0;&#x5355;&#x4E2A;&#x6587;&#x6863; <code>db.collection.updateOne()</code></p>
+<p>&#x66F4;&#x65B0;&#x591A;&#x4E2A;&#x6587;&#x6863; <code>db.collection.updateMany()</code></p>
+<h2 id="replace-&#x66FF;&#x6362;&#x4FEE;&#x6539;">Replace &#x66FF;&#x6362;&#x4FEE;&#x6539;</h2>
+<p>&#x5173;&#x952E;&#x547D;&#x4EE4;&#xFF1A;<code>.replaceOne()</code></p>
+<p>&#x66FF;&#x6362;&#x6587;&#x6863; <code>db.collection.replaceOne()</code></p>
+<h2 id="delete-&#x5220;&#x9664;">Delete &#x5220;&#x9664;</h2>
+<p>&#x5173;&#x952E;&#x547D;&#x4EE4;&#xFF1A;<code>.deleteMany()</code></p>
+<p>&#x5220;&#x9664;&#x6240;&#x6709;&#x6587;&#x6863; <code>db.collection.deleteMany()</code></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mongodb_collection_db.html" class="navigation navigation-prev " aria-label="Previous page: 2.1 库和集合">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="mongodb_cudr_query.html" class="navigation navigation-next " aria-label="Next page: 2.1 插入数据">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 查询数据","level":"2.2","depth":1,"next":{"title":"2.1 插入数据","level":"2.3","depth":1,"path":"md/mongodb_cudr_query.md","ref":"md/mongodb_cudr_query.md","articles":[]},"previous":{"title":"2.1 库和集合","level":"2.1","depth":1,"path":"md/mongodb_collection_db.md","ref":"md/mongodb_collection_db.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/mongodb_cudr_query.md","mtime":"2019-03-20T07:40:33.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-20T07:38:36.106Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
