@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.1 库和集合 · GitBook</title>
+        <title>2.2 库和集合 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -60,7 +60,7 @@
     <link rel="next" href="mongodb_cudr_query.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="mongodb_cmd_connect.html" />
     
 
     </head>
@@ -111,12 +111,12 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="mongodb_collection_db.html">
+        <li class="chapter " data-level="2.1" data-path="mongodb_cmd_connect.html">
             
-                <a href="mongodb_collection_db.html">
+                <a href="mongodb_cmd_connect.html">
             
                     
-                    2.1 库和集合
+                    2.1 命令连接
             
                 </a>
             
@@ -124,12 +124,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="mongodb_cudr_query.html">
+        <li class="chapter active" data-level="2.2" data-path="mongodb_collection_db.html">
             
-                <a href="mongodb_cudr_query.html">
+                <a href="mongodb_collection_db.html">
             
                     
-                    2.1 查询数据
+                    2.2 库和集合
             
                 </a>
             
@@ -142,7 +142,7 @@
                 <a href="mongodb_cudr_query.html">
             
                     
-                    2.1 插入数据
+                    2.3 查询数据
             
                 </a>
             
@@ -150,12 +150,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="mongodb_cudr_query.html">
+        <li class="chapter " data-level="2.4" data-path="mongodb_cudr_create.md">
             
-                <a href="mongodb_cudr_query.html">
+                <span>
             
                     
-                    2.1 更新数据
+                    2.4 插入数据
             
                 </a>
             
@@ -163,12 +163,25 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="mongodb_cudr_query.html">
+        <li class="chapter " data-level="2.5" data-path="mongodb_cudr_update.md">
             
-                <a href="mongodb_cudr_query.html">
+                <span>
             
                     
-                    2.1 删除操作
+                    2.5 更新数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="mongodb_cudr_delete.html">
+            
+                <a href="mongodb_cudr_delete.html">
+            
+                    
+                    2.6 删除操作
             
                 </a>
             
@@ -206,7 +219,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.1 库和集合</a>
+        <a href=".." >2.2 库和集合</a>
     </h1>
 </div>
 
@@ -221,9 +234,228 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x5E93;&#x548C;&#x96C6;&#x5408;&#x6587;&#x6863;">&#x5E93;&#x548C;&#x96C6;&#x5408;&#x6587;&#x6863;</h2>
-<h3 id=""> </h3>
-
+                                <h1 id="&#x5E93;&#x548C;&#x96C6;&#x5408;&#x6587;&#x6863;">&#x5E93;&#x548C;&#x96C6;&#x5408;&#x6587;&#x6863;</h1>
+<h2 id="&#x5E93;&#x64CD;&#x4F5C;">&#x5E93;&#x64CD;&#x4F5C;</h2>
+<h2 id="&#x67E5;&#x770B;&#x6240;&#x6709;&#x5E93;">&#x67E5;&#x770B;&#x6240;&#x6709;&#x5E93;</h2>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>show dbs</code></p>
+<pre><code class="lang-shell">&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+</code></pre>
+<h2 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5E93;">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5E93;</h2>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>db</code></p>
+<pre><code>&gt; db
+test
+</code></pre><h2 id="&#x5207;&#x6362;&#x5E93;">&#x5207;&#x6362;&#x5E93;</h2>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>use &#x5E93;&#x540D;</code></p>
+<pre><code>&gt; use local
+switched to db local
+&gt; db
+local
+</code></pre><h2 id="&#x67E5;&#x770B;&#x5E93;&#x72B6;&#x6001;">&#x67E5;&#x770B;&#x5E93;&#x72B6;&#x6001;</h2>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>db.stats()</code></p>
+<pre><code>&gt; db.stats()
+{
+    &quot;db&quot; : &quot;test&quot;,
+    &quot;collections&quot; : 0,
+    &quot;views&quot; : 0,
+    &quot;objects&quot; : 0,
+    &quot;avgObjSize&quot; : 0,
+    &quot;dataSize&quot; : 0,
+    &quot;storageSize&quot; : 0,
+    &quot;numExtents&quot; : 0,
+    &quot;indexes&quot; : 0,
+    &quot;indexSize&quot; : 0,
+    &quot;fileSize&quot; : 0,
+    &quot;fsUsedSize&quot; : 0,
+    &quot;fsTotalSize&quot; : 0,
+    &quot;ok&quot; : 1
+}
+</code></pre><h2 id="&#x521B;&#x5EFA;&#x5E93;">&#x521B;&#x5EFA;&#x5E93;</h2>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>use newdb1</code></p>
+<p>&#x5207;&#x6362;&#x5E93;&#x5982;&#x679C;&#x5E93;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x65B0;&#x5E93;&#x5E76;&#x5207;&#x6362;&#x5230;&#x65B0;&#x5E93;&#x91CC;&#x9762;&#xFF0C;&#x7531;&#x4E8E;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5E93;&#x6CA1;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x67E5;&#x770B;&#x6240;&#x6709;&#x5E93;&#x7684;&#x65F6;&#x5019;&#x5217;&#x8868;&#x91CC;&#x4E0D;&#x4F1A;&#x663E;&#x793A;&#x3002;</p>
+<pre><code>&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+&gt; use newdb1
+switched to db newdb1
+&gt; db
+newdb1
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+&gt;
+</code></pre><p>&#x5982;&#x679C;&#x5F80;&#x91CC;&#x9762;&#x63D2;&#x5165;&#x4E86;&#x6570;&#x636E;&#xFF0C;&#x67E5;&#x770B;&#x5E93;&#x5217;&#x8868;&#x65F6;&#x5C31;&#x80FD;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x5E93;&#x4E86;&#x3002;</p>
+<pre><code>&gt; use newdb1
+switched to db newdb1
+&gt; db
+newdb1
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+&gt; db.newdb1.insert({&quot;db_name&quot;:&quot;newdb1 for demo&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+newdb1  0.000GB
+</code></pre><h2 id="&#x5220;&#x9664;&#x5E93;">&#x5220;&#x9664;&#x5E93;</h2>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>db.dropDatabase()</code></p>
+<p>&#x5220;&#x9664;&#x5E93;&#x9700;&#x8981;&#x8FDB;&#x5165;&#x5230;&#x6307;&#x5B9A;&#x5E93;&#xFF0C;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x5220;&#x9664;&#x5F53;&#x524D;&#x5E93;</p>
+<pre><code>&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+newdb1  0.000GB
+&gt; db
+newdb1
+&gt; db.dropDatabase()
+{ &quot;dropped&quot; : &quot;newdb1&quot;, &quot;ok&quot; : 1 }
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+</code></pre><h2 id="&#x96C6;&#x5408;&#x64CD;&#x4F5C;">&#x96C6;&#x5408;&#x64CD;&#x4F5C;</h2>
+<h3 id="&#x663E;&#x793A;&#x6240;&#x6709;&#x96C6;&#x5408;">&#x663E;&#x793A;&#x6240;&#x6709;&#x96C6;&#x5408;</h3>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>show collections</code></p>
+<pre><code>&gt; use local
+switched to db local
+&gt; show collections
+startup_log
+</code></pre><h3 id="&#x521B;&#x5EFA;&#x96C6;&#x5408;">&#x521B;&#x5EFA;&#x96C6;&#x5408;</h3>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>db.createCollection(name, options)</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B57;&#x6BB5;</th>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x5FC5;&#x9009;&#x9879;</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">capped</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left">&#x662F;&#x5426;&#x521B;&#x5EFA;&#x56FA;&#x5B9A;&#x96C6;&#x5408;&#x3002;&#x56FA;&#x5B9A;&#x96C6;&#x5408;&#x662F;&#x6307;&#x6709;&#x7740;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5F53;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x8986;&#x76D6;&#x6700;&#x65E9;&#x7684;&#x6587;&#x6863;&#x3002;&#x5F53;&#x8BE5;&#x503C;&#x4E3A; true &#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x6307;&#x5B9A; size &#x53C2;&#x6570;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">autoIndexId</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left">&#x662F;&#x5426;&#x81EA;&#x52A8;&#x5728; _id &#x5B57;&#x6BB5;&#x521B;&#x5EFA;&#x7D22;&#x5F15;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; false&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left">&#x4E3A;&#x56FA;&#x5B9A;&#x96C6;&#x5408;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x503C;&#xFF08;&#x4EE5;&#x5B57;&#x8282;KB&#x8BA1;&#xFF09;&#x3002;&#x5982;&#x679C; capped &#x4E3A; true&#xFF0C;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x8BE5;&#x5B57;&#x6BB5;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">max</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x56FA;&#x5B9A;&#x96C6;&#x5408;&#x4E2D;&#x5305;&#x542B;&#x6587;&#x6863;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x521B;&#x5EFA;&#x666E;&#x901A;&#x96C6;&#x5408;</p>
+<pre><code>&gt; db
+learning
+&gt; show collections
+&gt; db.createCollection(&quot;my_collection&quot;)
+{ &quot;ok&quot; : 1 }
+&gt; show collections
+my_collection
+</code></pre><p>&#x5728; mongodb &#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x4E8B;&#x5148;&#x521B;&#x5EFA;&#x96C6;&#x5408;&#xFF0C;&#x5F80;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x96C6;&#x5408;&#x63D2;&#x5165;&#x6587;&#x6863;&#x5C31;&#x4F1A;&#x521B;&#x5EFA;&#x8BE5;&#x96C6;&#x5408;&#xFF1A;</p>
+<pre><code>&gt; use learning
+switched to db learning
+&gt; show collections
+my_collection
+&gt; db.my_collection_tmp.insert({&quot;name&quot;:&quot;mongodb&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; show collections
+my_collection
+my_collection_tmp
+</code></pre><pre><code>&gt; db.my_collection_tmp.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c930b73a0bdd2c56dbbf4c7&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+&gt; db.my_collection_tmp.count()
+1
+&gt; db.my_collection_tmp.dataSize()
+40
+&gt; db.my_collection_tmp.storageSize()
+16384
+</code></pre><p>&#x4E0A;&#x9762;&#x6D4B;&#x8BD5;1&#x6761;&#x8BB0;&#x5F55;&#x5927;&#x5C0F;&#x662F;40&#xFF0C;&#x5047;&#x8BBE;&#x8BBE;&#x7F6E;&#x6587;&#x6863;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;200&#xFF0C;&#x53EA;&#x80FD;&#x63D2;&#x5165;5&#x6761;&#x3002;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;200&#xFF0C;&#x6700;&#x5927;&#x8BB0;&#x5F55;&#x6761;&#x6570;10&#x6761;&#x7684;&#x6587;&#x6863;&#xFF1A;
+<code>db.createCollection(&quot;my_collection_fix&quot;, {capped : true, autoIndexId : true, size : 200, max : 10})</code></p>
+<p>&#x63D2;&#x5165;5&#x6761;&#x8BB0;&#x5F55;&#xFF1A;</p>
+<pre><code>db.my_collection_fix.insertMany([{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;}])
+</code></pre><pre><code>&gt; show collections
+my_collection
+my_collection_tmp
+&gt; db.createCollection(&quot;my_collection_fix&quot;, {capped : true, autoIndexId : true, size : 200, max : 10})
+{
+    &quot;note&quot; : &quot;the autoIndexId option is deprecated and will be removed in a future release&quot;,
+    &quot;ok&quot; : 1
+}
+&gt; db.my_collection_fix.insertMany([{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;},{&quot;name&quot;:&quot;mongodb&quot;}])
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedIds&quot; : [
+        ObjectId(&quot;5c934089a0bdd2c56dbbf4ca&quot;),
+        ObjectId(&quot;5c9340d5a0bdd2c56dbbf4cb&quot;),
+        ObjectId(&quot;5c9340d5a0bdd2c56dbbf4cc&quot;),
+        ObjectId(&quot;5c9340d5a0bdd2c56dbbf4cd&quot;),
+        ObjectId(&quot;5c9340d5a0bdd2c56dbbf4ce&quot;)
+    ]
+}
+&gt; db.my_collection_fix.dataSize()
+200
+&gt; db.my_collection_fix.count()
+5
+</code></pre><p>&#x73B0;&#x5728;&#x56FA;&#x5B9A;&#x6587;&#x6863;&#x5DF2;&#x7ECF;&#x6709;5&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x5927;&#x5C0F;&#x662F;200&#xFF0C;&#x63A5;&#x7740;&#x7EE7;&#x7EED;&#x63D2;&#x5165;&#x6570;&#x636E;&#x770B;&#x770B;&#x6548;&#x679C;&#xFF1A;</p>
+<pre><code>&gt; db.my_collection_fix.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c934089a0bdd2c56dbbf4ca&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c9340d5a0bdd2c56dbbf4cb&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c9340d5a0bdd2c56dbbf4cc&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c9340d5a0bdd2c56dbbf4cd&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c9340d5a0bdd2c56dbbf4ce&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c93420ea0bdd2c56dbbf4cf&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+&gt; db.my_collection_fix.insert({&quot;name&quot;:&quot;mongodb&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.my_collection_fix.insert({&quot;name&quot;:&quot;mongodb&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.my_collection_fix.insert({&quot;name&quot;:&quot;mongodb&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.my_collection_fix.insert({&quot;name&quot;:&quot;mongodb&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.my_collection_fix.insert({&quot;name&quot;:&quot;mongodb&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.my_collection_fix.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c93420ea0bdd2c56dbbf4cf&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c934249a0bdd2c56dbbf4d0&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c93424ca0bdd2c56dbbf4d1&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c93424da0bdd2c56dbbf4d2&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c93424ea0bdd2c56dbbf4d3&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c93424fa0bdd2c56dbbf4d4&quot;), &quot;name&quot; : &quot;mongodb&quot; }
+</code></pre><p>&#x5728;&#x7EE7;&#x7EED;&#x63D2;&#x5165;&#x6570;&#x636E;&#x524D;ID&#x6700;&#x540E;&#x7684;&#x662F;4cf&#xFF0C;&#x8FDE;&#x7EED;&#x63D2;&#x5165;5&#x6761;&#x6570;&#x636E;&#x540E;&#x518D;&#x770B;&#x8BB0;&#x5F55;&#xFF0C;&#x6700;&#x540E;&#x7684;&#x6570;&#x636E;ID&#x662F;4d4&#xFF0C;&#x524D;&#x9762;5&#x6761;&#x65E7;&#x7684;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x88AB;&#x8986;&#x76D6;&#x4E86;&#x3002;</p>
+<h3 id="&#x5220;&#x9664;&#x96C6;&#x5408;">&#x5220;&#x9664;&#x96C6;&#x5408;</h3>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>db.collection.drop()</code></p>
+<pre><code>&gt; show collections
+my_collection
+my_collection_fix
+my_collection_tmp
+&gt; db.my_collection_tmp.drop()
+true
+&gt; show collections
+my_collection
+my_collection_fix
+</code></pre>
                                 
                                 </section>
                             
@@ -250,12 +482,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="mongodb_cmd_connect.html" class="navigation navigation-prev " aria-label="Previous page: 2.1 命令连接">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="mongodb_cudr_query.html" class="navigation navigation-next " aria-label="Next page: 2.1 查询数据">
+                <a href="mongodb_cudr_query.html" class="navigation navigation-next " aria-label="Next page: 2.3 查询数据">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -266,7 +498,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.1 库和集合","level":"2.1","depth":1,"next":{"title":"2.1 查询数据","level":"2.2","depth":1,"path":"md/mongodb_cudr_query.md","ref":"md/mongodb_cudr_query.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/mongodb_collection_db.md","mtime":"2019-03-20T07:43:57.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-20T07:38:36.106Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.2 库和集合","level":"2.2","depth":1,"next":{"title":"2.3 查询数据","level":"2.3","depth":1,"path":"md/mongodb_cudr_query.md","ref":"md/mongodb_cudr_query.md","articles":[]},"previous":{"title":"2.1 命令连接","level":"2.1","depth":1,"path":"md/mongodb_cmd_connect.md","ref":"md/mongodb_cmd_connect.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/mongodb_collection_db.md","mtime":"2019-03-21T08:27:49.389Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-21T01:43:45.853Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
