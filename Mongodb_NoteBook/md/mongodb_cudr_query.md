@@ -338,6 +338,29 @@ db.my_collection_2.insertMany([
 > 
 ``` 
 
+### 高级聚合查询
+
+```
+db.authors.insertMany([{"author":"一一","gender":"女","age":20},{"author":"二郎","gender":"男","age":20},{"author":"张三","gender":"男","age":18},{"author":"李四","gender":"男","age":21},{"author":"五百","gender":"男","age":17}])
 
 
+db.getCollection('authors').aggregate(
+    {"$match": {"age": {"$gte":18, "$lte":30}}},
+    {"$group": {"_id": "$gender", "gender_count":{$sum:1}, "age_sum":{$sum:"$age"}}},
+    {"$sort": {"_id":1}},
+    {"$limit": 10}
+);
 
+
+db.authors.group(
+    {
+        key: {gender:1},
+        cond: {"age": {"$gte":18, "$lte":30}},
+        reduce: function(curr, result){
+            result.gender_count += 1;
+            result.age_sum += curr.age;
+        },
+        initial: {gender_count:0, age_sum:0}
+    }
+);
+```
