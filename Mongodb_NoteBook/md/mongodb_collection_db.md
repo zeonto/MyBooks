@@ -2,7 +2,7 @@
 
 ## 库操作
 
-## 查看所有库
+### 查看所有库
 
 命令：`show dbs`
 
@@ -13,7 +13,7 @@ config  0.000GB
 local   0.000GB
 ```
 
-## 查看当前库
+### 查看当前库
 
 命令：`db`
 
@@ -22,7 +22,7 @@ local   0.000GB
 test
 ```
 
-## 切换库
+### 切换库
 
 命令：`use 库名`
 
@@ -33,7 +33,7 @@ switched to db local
 local
 ```
 
-## 查看库状态
+### 查看库状态
 
 命令：`db.stats()`
 
@@ -57,7 +57,7 @@ local
 }
 ```
 
-## 创建库
+### 创建库
 
 命令：`use newdb1`
 
@@ -97,7 +97,7 @@ local   0.000GB
 newdb1  0.000GB
 ```
 
-## 删除库
+### 删除库
 
 命令：`db.dropDatabase()`
 
@@ -118,11 +118,21 @@ config  0.000GB
 local   0.000GB
 ```
 
+### 库版本
+
+命令：`db.version()`
+
+```
+> db.version()
+4.0.4
+```
+
+
 ## 集合操作
 
 ### 显示所有集合
 
-命令：`show collections`
+命令：`show collections` or `show tables`
 
 ```
 > use local

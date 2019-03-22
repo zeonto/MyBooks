@@ -1,0 +1,542 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.5 更新数据 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="mongodb_cudr_delete.html" />
+    
+    
+    <link rel="prev" href="mongodb_crud_create.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">一 安装准备</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">二 操作命令</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="mongodb_cmd_connect.html">
+            
+                <a href="mongodb_cmd_connect.html">
+            
+                    
+                    2.1 命令连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="mongodb_collection_db.html">
+            
+                <a href="mongodb_collection_db.html">
+            
+                    
+                    2.2 库和集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="mongodb_cudr_query.html">
+            
+                <a href="mongodb_cudr_query.html">
+            
+                    
+                    2.3 查询数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="mongodb_crud_create.html">
+            
+                <a href="mongodb_crud_create.html">
+            
+                    
+                    2.4 插入数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5" data-path="mongodb_crud_update.html">
+            
+                <a href="mongodb_crud_update.html">
+            
+                    
+                    2.5 更新数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="mongodb_cudr_delete.html">
+            
+                <a href="mongodb_cudr_delete.html">
+            
+                    
+                    2.6 删除操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.5 更新数据</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x66F4;&#x65B0;&#x64CD;&#x4F5C;">&#x66F4;&#x65B0;&#x64CD;&#x4F5C;</h1>
+<pre><code>&gt; db.my_collection.insertMany([{&quot;name&quot;:&quot;&#x4E00;&#x4E00;&quot;,&quot;gender&quot;:&quot;&#x5973;&quot;,&quot;age&quot;:20},{&quot;name&quot;:&quot;&#x4E8C;&#x90CE;&quot;,&quot;gender&quot;:&quot;&#x7537;&quot;,&quot;age&quot;:20},{&quot;name&quot;:&quot;&#x5F20;&#x4E09;&quot;,&quot;gender&quot;:&quot;&#x7537;&quot;,&quot;age&quot;:18},{&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;,&quot;gender&quot;:&quot;&#x7537;&quot;,&quot;age&quot;:21},{&quot;name&quot;:&quot;&#x4E94;&#x767E;&quot;,&quot;gender&quot;:&quot;&#x7537;&quot;,&quot;age&quot;:17}])
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedIds&quot; : [
+        ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;),
+        ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;),
+        ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;),
+        ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;),
+        ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;)
+    ]
+}
+&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 18 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 17 }
+</code></pre><h2 id="&#x5B57;&#x6BB5;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7B26;">&#x5B57;&#x6BB5;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7B26;</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x64CD;&#x4F5C;&#x7B26;</th>
+<th style="text-align:left">&#x7528;&#x6CD5;</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$inc</td>
+<td style="text-align:left"><code>{$inc:{field:value}}</code></td>
+<td style="text-align:left">&#x7528;&#x6765;&#x589E;&#x52A0;&#x5DF2;&#x6709;&#x952E;&#x7684;&#x503C;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x952E;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x952E;&#x3002;inc&#x5C31;&#x662F;&#x4E13;&#x95E8;&#x6765;&#x589E;&#x52A0;&#xFF08;&#x548C;&#x51CF;&#x5C11;&#xFF09;&#x6570;&#x5B57;&#x7684;&#x3002;&quot;$inc&quot;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x6574;&#x6570;&#x3001;&#x957F;&#x6574;&#x6570;&#x6216;&#x53CC;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x6570;&#x3002;&#x8981;&#x662F;&#x7528;&#x5728;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x4E0A;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">$rename</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x91CD;&#x547D;&#x540D;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#xFF0C;&#x65B0;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x4E0D;&#x80FD;&#x548C;&#x6587;&#x6863;&#x4E2D;&#x73B0;&#x6709;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x76F8;&#x540C;&#x3002;&#x5982;&#x679C;&#x6587;&#x6863;&#x4E2D;&#x5B58;&#x5728;&#x548C;&#x65B0;&#x5B57;&#x6BB5;&#x540D;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x4F1A;&#x5C06;&#x6587;&#x6863;&#x4E2D;&#x539F;&#x6765;&#x7684;&#x5B57;&#x6BB5;&#x548C;&#x503C;&#x79FB;&#x9664;&#x6389;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x91CD;&#x547D;&#x540D;&#x5B57;&#x6BB5;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">$set</td>
+<td style="text-align:left"><code>{$set:{field:value}}</code></td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x952E;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x952E;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x5B83;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">$unset</td>
+<td style="text-align:left"><code>{$unset:{field:1}}</code></td>
+<td style="text-align:left">&#x4ECE;&#x6587;&#x6863;&#x4E2D;&#x79FB;&#x9664;&#x6307;&#x5B9A;&#x7684;&#x952E;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">$push</td>
+<td style="text-align:left"><code>{$push:{field:value}}</code></td>
+<td style="text-align:left">&#x628A;value&#x8FFD;&#x52A0;&#x5230;field&#x91CC;&#x3002;field&#x53EA;&#x80FD;&#x662F;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;field&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7C7B;&#x578B;</td>
+</tr>
+<tr>
+<td style="text-align:left">$pushAll</td>
+<td style="text-align:left"><code>{$pushAll:{field:value_array}}</code></td>
+<td style="text-align:left">&#x7528;&#x6CD5;&#x540C;$push&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x662F;$pushAll&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x8FFD;&#x52A0;&#x591A;&#x4E2A;&#x503C;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x6BB5;&#x5185;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">$pop</td>
+<td style="text-align:left">&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5185;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#xFF1A;{$pop:{field:-1}}&#x3001;&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5185;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x503C;&#xFF1A;{$pop:{field:1}}</td>
+<td style="text-align:left">&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5185;&#x7684;&#x4E00;&#x4E2A;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">$pull</td>
+<td style="text-align:left"><code>{$pull:{field:_value}}</code></td>
+<td style="text-align:left">&#x4ECE;&#x6570;&#x7EC4;field&#x5185;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7B49;&#x4E8E;_value&#x7684;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">$pullAll</td>
+<td style="text-align:left"><code>{$pullAll:value_array}</code></td>
+<td style="text-align:left">&#x7528;&#x6CD5;&#x540C;$pull&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x6027;&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5185;&#x7684;&#x591A;&#x4E2A;&#x503C;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">$setOnInsert</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">$min</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">$max</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">$mul</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#currentDate-demo">$currentDate</a></td>
+<td style="text-align:left"><code>{$currentDate:{&lt;field1&gt;:{$type:&lt;DateType&gt;}, ... }}</code></td>
+<td style="text-align:left">&#x8BBE;&#x7F6E;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#x4E3A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x503C;&#x4E3A;Date&#x7C7B;&#x578B;&#x6216;&#x8005;Timestamp&#x65F6;&#x95F4;&#x6233;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;Date&#x7C7B;&#x578B;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update-&#x65B9;&#x6CD5;">update() &#x65B9;&#x6CD5;</h2>
+<p>&#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre><code>db.collection.update(
+   &lt;query&gt;,
+   &lt;update&gt;,
+   {
+     upsert: &lt;boolean&gt;,
+     multi: &lt;boolean&gt;,
+     writeConcern: &lt;document&gt;
+   }
+)
+</code></pre><pre><code>&gt; db.my_collection.find({&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5c938454a0bdd2c56dbbf538&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : &quot;21&quot; }
+&gt; db.my_collection.update({&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;},{$set:{&quot;age&quot;:&quot;23&quot;}})
+WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 })
+&gt; db.my_collection.find({&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5c938454a0bdd2c56dbbf538&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : &quot;23&quot; }
+</code></pre><pre><code>&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 18 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 17 }
+&gt; db.my_collection.update({&quot;gender&quot;:&quot;&#x7537;&quot;},{$inc:{&quot;age&quot;:1}})
+WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 })
+&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 18 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 17 }
+</code></pre><pre><code>&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 18 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 17 }
+&gt; db.my_collection.update({&quot;gender&quot;:&quot;&#x7537;&quot;},{$inc:{&quot;age&quot;:1}},{multi:true})
+WriteResult({ &quot;nMatched&quot; : 4, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 4 })
+&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 22 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 19 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 22 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 18 }
+&gt; db.my_collection.update({&quot;gender&quot;:&quot;&#x7537;&quot;},{$inc:{&quot;age&quot;:1}},false,true)
+WriteResult({ &quot;nMatched&quot; : 4, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 4 })
+</code></pre><h2 id="save-&#x65B9;&#x6CD5;">save() &#x65B9;&#x6CD5;</h2>
+<p>&#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre><code>db.collection.save(
+   &lt;document&gt;,
+   {
+     writeConcern: &lt;document&gt;
+   }
+)
+</code></pre><p>save() &#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x6587;&#x6863;&#x6765;&#x66FF;&#x6362;&#x5DF2;&#x6709;&#x6587;&#x6863;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F20;&#x5165;&#x7684;&#x6587;&#x6863;&#x9700;&#x8981;&#x6709; _id&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x76F8;&#x540C; _id &#x7684;&#x5C31;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#x66F4;&#x65B0;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x8BE5; _id &#x5C31;&#x8FDB;&#x884C;&#x63D2;&#x5165;&#x3002;</p>
+<p>&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code>&gt; db.my_collection.find({&quot;name&quot;:&quot;&#x4E00;&#x4E00;&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 20 }
+&gt; db.my_collection.save({&quot;_id&quot;:ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;),&quot;name&quot;:&quot;&#x4E00;&#x4E00;&quot;,&quot;gender&quot;:&quot;&#x5973;&quot;,&quot;age&quot;:22})
+WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 })
+&gt; db.my_collection.find({&quot;name&quot;:&quot;&#x4E00;&#x4E00;&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 22 }
+</code></pre><h2 id="updateone-&#x548C;-updatemany-&#x65B9;&#x6CD5;">updateOne() &#x548C; updateMany() &#x65B9;&#x6CD5;</h2>
+<p>updateOne() &#x548C; updateMany() &#x65B9;&#x6CD5;&#x662F;&#x5BF9;&#x5E94; update() &#x65B9;&#x6CD5;&#x7684; multi &#x662F;&#x5426;&#x4E3A;&#x5047;&#x6216;&#x771F;&#x3002;updateOne() &#x6548;&#x679C;&#x7B49;&#x540C;&#x4E8E; multi:false&#xFF0C;updateMany() &#x6548;&#x679C;&#x7B49;&#x540C;&#x4E8E; multi:true&#x3002;</p>
+<p>&#x4E0E;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x7684; deleteOne()&#x3001;deleteMany() &#x5BF9;&#x5E94; remove() &#x65B9;&#x6CD5;&#x662F;&#x5426;&#x4F7F;&#x7528; justOne &#x53C2;&#x6570;&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>updateOne &#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code>&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 22 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 24 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 23 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 19 }
+&gt; 
+&gt; 
+&gt; db.my_collection.updateOne({&quot;gender&quot;:&quot;&#x7537;&quot;},{$set:{&quot;age&quot;:20}})
+{ &quot;acknowledged&quot; : true, &quot;matchedCount&quot; : 1, &quot;modifiedCount&quot; : 1 }
+&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 22 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 23 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 19 }
+</code></pre><p>updateMany &#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code>&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 22 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 23 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 19 }
+&gt; 
+&gt; 
+&gt; db.my_collection.updateMany({&quot;gender&quot;:&quot;&#x7537;&quot;},{$set:{&quot;age&quot;:20}})
+{ &quot;acknowledged&quot; : true, &quot;matchedCount&quot; : 4, &quot;modifiedCount&quot; : 2 }
+&gt; db.my_collection.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf53f&quot;), &quot;name&quot; : &quot;&#x4E00;&#x4E00;&quot;, &quot;gender&quot; : &quot;&#x5973;&quot;, &quot;age&quot; : 22 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf540&quot;), &quot;name&quot; : &quot;&#x4E8C;&#x90CE;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf541&quot;), &quot;name&quot; : &quot;&#x5F20;&#x4E09;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf542&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c944222a0bdd2c56dbbf543&quot;), &quot;name&quot; : &quot;&#x4E94;&#x767E;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 20 }
+</code></pre><h2 id="replaceone-&#x65B9;&#x6CD5;">replaceOne() &#x65B9;&#x6CD5;</h2>
+<p>&#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre><code>db.collection.replaceOne(
+   &lt;filter&gt;,
+   &lt;replacement&gt;,
+   {
+     upsert: &lt;boolean&gt;,
+     writeConcern: &lt;document&gt;,
+     collation: &lt;document&gt;
+   }
+)
+</code></pre><p>&#x8DDF; updateOne() &#x65B9;&#x6CD5;&#x6548;&#x679C;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x66FF;&#x6362;&#x7684;&#x6587;&#x6863;&#x5185;&#x5BB9;&#x91CC;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7B26;</p>
+<h2 id="&#x5B57;&#x6BB5;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7B26;&#x5B9E;&#x4F8B;">&#x5B57;&#x6BB5;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7B26;&#x5B9E;&#x4F8B;</h2>
+<h3 id="currentdate"><label id="currentDate-demo">currentDate</label></h3>
+<pre><code>&gt; db.my_collection.find({&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5c94528aa0bdd2c56dbbf547&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21 }
+&gt; 
+&gt; db.my_collection.update({&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;},{$currentDate:{&quot;update_dt&quot;:{$type:&quot;date&quot;},&quot;update_time&quot;:{$type:&quot;timestamp&quot;}}})
+WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 })
+&gt; db.my_collection.find({&quot;name&quot;:&quot;&#x674E;&#x56DB;&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5c94528aa0bdd2c56dbbf547&quot;), &quot;name&quot; : &quot;&#x674E;&#x56DB;&quot;, &quot;gender&quot; : &quot;&#x7537;&quot;, &quot;age&quot; : 21, &quot;update_dt&quot; : ISODate(&quot;2019-03-22T03:21:12.575Z&quot;), &quot;update_time&quot; : Timestamp(1553224872, 1) }
+&gt;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mongodb_crud_create.html" class="navigation navigation-prev " aria-label="Previous page: 2.4 插入数据">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="mongodb_cudr_delete.html" class="navigation navigation-next " aria-label="Next page: 2.6 删除操作">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.5 更新数据","level":"2.5","depth":1,"next":{"title":"2.6 删除操作","level":"2.6","depth":1,"path":"md/mongodb_cudr_delete.md","ref":"md/mongodb_cudr_delete.md","articles":[]},"previous":{"title":"2.4 插入数据","level":"2.4","depth":1,"path":"md/mongodb_crud_create.md","ref":"md/mongodb_crud_create.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/mongodb_crud_update.md","mtime":"2019-03-22T03:50:22.943Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-22T04:01:55.393Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

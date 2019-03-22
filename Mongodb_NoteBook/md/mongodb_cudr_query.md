@@ -72,7 +72,11 @@ db.authors.insertMany([{"author":"一一","gender":"女","age":"20"},{"author":"
 | 大于 | `{<key>:{$gt:<value>}}` | db.shengxiao.find({"nian":{$gt:2000}}) | where nian > 2000 |
 | 大于等于 | `{<key>:{$gte:<value>}}` | db.shengxiao.find({"nian":{$gte:2000}}) | where nian >= 2000 |
 | 不等于 | `{<key>:{$ne:<value>}}` | db.shengxiao.find({"nian":{$ne:2019}}) | where nian != 2019 |
-| 在N和M之间 | `{<key>:{$gte:<value>,$lte:<value>}}` | db.shengxiao.find({"nian":{$gte:2000,$lte:2010}}) | where nian >= 2000 and nian <= 2010> |
+| 在N和M之间 | `{<key>:{$gte:<value>,$lte:<value>}}` | db.shengxiao.find({"nian":{$gte:2000,$lte:2010}}) | where nian >= 2000 and nian <= 2010 |
+| 包含 | `{<key>:{$in:[<array>]}}` | db.my_collection.find({"age":{$in:[20,22]}}) | where age in (20,22) |
+| 不包含 | `{<key>:{$nin:[<array>]}}` | db.my_collection.find({"age":{$nin:[20,22]}}) | where age not in (20,22) |
+
+__这里条件操作符的大于等于和小于等于需要注意下，这里的是等于符号在最后 `gte`、`lte`，使用 tp 框架时等于符号必须是在前面的 `egt`、`elt`__
 
 ### AND 条件查询
 
@@ -121,63 +125,219 @@ db.authors.insertMany([{"author":"一一","gender":"女","age":"20"},{"author":"
 ```
 类似于 `where nian > 2000 AND (shengxiao = '猪' OR shengxiao = '狗')`
 
+### $exists 判断字段是否存在
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Insert 插入
-
-关键命令：`.insertOne()` 、`.insertMany()`
-
-插入一个文档 `db.collection.insertOne()`
-
-插入多个文档 `db.collection.insertMany()`
-
-插入示例
-```shell
-db.collection.insertMany([
-   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
-   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
-   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
-   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
-   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
-]);
+```
+> db.shengxiao.find({"nian":{$exists:true}})
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4d5"), "shengxiao" : "鼠", "nian" : 1924 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4d6"), "shengxiao" : "鼠", "nian" : 1936 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4d7"), "shengxiao" : "鼠", "nian" : 1948 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4d8"), "shengxiao" : "鼠", "nian" : 1960 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4d9"), "shengxiao" : "鼠", "nian" : 1972 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4da"), "shengxiao" : "鼠", "nian" : 1984 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4db"), "shengxiao" : "鼠", "nian" : 1996 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4dc"), "shengxiao" : "鼠", "nian" : 2008 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4dd"), "shengxiao" : "牛", "nian" : 1925 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4de"), "shengxiao" : "牛", "nian" : 1937 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4df"), "shengxiao" : "牛", "nian" : 1949 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e0"), "shengxiao" : "牛", "nian" : 1961 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e1"), "shengxiao" : "牛", "nian" : 1973 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e2"), "shengxiao" : "牛", "nian" : 1985 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e3"), "shengxiao" : "牛", "nian" : 1997 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e4"), "shengxiao" : "牛", "nian" : 2009 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e5"), "shengxiao" : "虎", "nian" : 1926 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e6"), "shengxiao" : "虎", "nian" : 1938 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e7"), "shengxiao" : "虎", "nian" : 1950 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e8"), "shengxiao" : "虎", "nian" : 1962 }
+Type "it" for more
+> db.shengxiao.find({"nian":{$exists:false}})
+> 
 ```
 
-## Update 更新
+### $mod 取模运算
 
-关键命令：`.updateOne()` 、`.updateMany()`
+{$mod:[N,M]}:集合中模N余M的数据
 
-更新单个文档 `db.collection.updateOne()`
+```
+> db.shengxiao.find({"nian":{$mod:[10,1]}})
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4e0"), "shengxiao" : "牛", "nian" : 1961 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4ef"), "shengxiao" : "兔", "nian" : 1951 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4f4"), "shengxiao" : "兔", "nian" : 2011 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf4fe"), "shengxiao" : "蛇", "nian" : 1941 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf503"), "shengxiao" : "蛇", "nian" : 2001 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf50d"), "shengxiao" : "羊", "nian" : 1931 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf512"), "shengxiao" : "羊", "nian" : 1991 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf521"), "shengxiao" : "鸡", "nian" : 1981 }
+{ "_id" : ObjectId("5c937beca0bdd2c56dbbf530"), "shengxiao" : "猪", "nian" : 1971 }
+> 
+```
 
-更新多个文档 `db.collection.updateMany()`
+### $size 元素个数
 
-## Replace 替换修改
+准备数据：
+```
+db.my_collection.insertMany([{"author":"七七","gender":"女","age":20,"class":[1,2,5]},{"author":"八神","gender":"男","age":20,"class":[1,3]}])
+```
 
-关键命令：`.replaceOne()`
+```
+> db.my_collection.find()
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf551"), "name" : "一一", "gender" : "女", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf552"), "name" : "二郎", "gender" : "男", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf553"), "name" : "张三", "gender" : "男", "age" : 18 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf554"), "name" : "李四", "gender" : "男", "age" : 21 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf555"), "name" : "五百", "gender" : "男", "age" : 17 }
+{ "_id" : ObjectId("5c945ee3a0bdd2c56dbbf556"), "name" : "六六", "gender" : "女", "age" : 22 }
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf557"), "author" : "七七", "gender" : "女", "age" : 20, "class" : [ 1, 2, 5 ] }
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf558"), "author" : "八神", "gender" : "男", "age" : 20, "class" : [ 1, 3 ] }
+> db.my_collection.find({"class":{$size:2}})
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf558"), "author" : "八神", "gender" : "男", "age" : 20, "class" : [ 1, 3 ] }
+> db.my_collection.find({"class":{$size:3}})
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf557"), "author" : "七七", "gender" : "女", "age" : 20, "class" : [ 1, 2, 5 ] }
+> db.my_collection.find({"class":{$size:4}})
+> 
+```
 
-替换文档 `db.collection.replaceOne()`
+### 正则查询
+
+```
+> db.my_collection.find({"name":/^张.*/})
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf553"), "name" : "张三", "gender" : "男", "age" : 18 }
+```
+
+### limit() 取条数
+
+```
+> db.my_collection.find().limit(3)
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf551"), "name" : "一一", "gender" : "女", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf552"), "name" : "二郎", "gender" : "男", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf553"), "name" : "张三", "gender" : "男", "age" : 18 }
+```
+
+### skip() 跳过条数
+
+```
+> db.my_collection.find().skip(1).limit(3)
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf552"), "name" : "二郎", "gender" : "男", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf553"), "name" : "张三", "gender" : "男", "age" : 18 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf554"), "name" : "李四", "gender" : "男", "age" : 21 }
+```
+
+### sort() 结果排序
+
+```
+> db.my_collection.find().sort({"age":1})
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf555"), "name" : "五百", "gender" : "男", "age" : 17 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf553"), "name" : "张三", "gender" : "男", "age" : 18 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf551"), "name" : "一一", "gender" : "女", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf552"), "name" : "二郎", "gender" : "男", "age" : 20 }
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf557"), "author" : "七七", "gender" : "女", "age" : 20, "class" : [ 1, 2, 5 ] }
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf558"), "author" : "八神", "gender" : "男", "age" : 20, "class" : [ 1, 3 ] }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf554"), "name" : "李四", "gender" : "男", "age" : 21 }
+{ "_id" : ObjectId("5c945ee3a0bdd2c56dbbf556"), "name" : "六六", "gender" : "女", "age" : 22 }
+> db.my_collection.find().sort({"age":-1})
+{ "_id" : ObjectId("5c945ee3a0bdd2c56dbbf556"), "name" : "六六", "gender" : "女", "age" : 22 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf554"), "name" : "李四", "gender" : "男", "age" : 21 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf551"), "name" : "一一", "gender" : "女", "age" : 20 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf552"), "name" : "二郎", "gender" : "男", "age" : 20 }
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf557"), "author" : "七七", "gender" : "女", "age" : 20, "class" : [ 1, 2, 5 ] }
+{ "_id" : ObjectId("5c948530a0bdd2c56dbbf558"), "author" : "八神", "gender" : "男", "age" : 20, "class" : [ 1, 3 ] }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf553"), "name" : "张三", "gender" : "男", "age" : 18 }
+{ "_id" : ObjectId("5c945dbca0bdd2c56dbbf555"), "name" : "五百", "gender" : "男", "age" : 17 }
+> 
+```
+
+### count() 计算总条数
+
+```
+> db.my_collection.find().count()
+8
+```
+
+### pretty() 美化显示
+
+准备数据：
+```
+db.my_collection_2.insertMany([
+    {
+        "author":"七七","gender":"女","age":20,"bag":{
+            "6":{"items":{"11":{"code":1000},"9":{"code":1002}}},
+            "1":{"items":{"11":{"code":1000},"9":{"code":1001}}}
+        }
+    },
+    {
+        "author":"八神","gender":"男","age":20,"bag":{
+            "6":{"items":{"11":{"code":1000},"9":{"code":1001}}},
+            "7":{"items":{"11":{"code":2000},"9":{"code":2001}}}
+        }
+    }
+])
+```
+
+```
+> db.my_collection_2.find()
+{ "_id" : ObjectId("5c948e04a0bdd2c56dbbf559"), "author" : "七七", "gender" : "女", "age" : 20, "bag" : { "1" : { "items" : { "9" : { "code" : 1001 }, "11" : { "code" : 1000 } } }, "6" : { "items" : { "9" : { "code" : 1002 }, "11" : { "code" : 1000 } } } } }
+{ "_id" : ObjectId("5c948e04a0bdd2c56dbbf55a"), "author" : "八神", "gender" : "男", "age" : 20, "bag" : { "6" : { "items" : { "9" : { "code" : 1001 }, "11" : { "code" : 1000 } } }, "7" : { "items" : { "9" : { "code" : 2001 }, "11" : { "code" : 2000 } } } } }
+>
+> db.my_collection_2.find().pretty()
+{
+	"_id" : ObjectId("5c948e04a0bdd2c56dbbf559"),
+	"author" : "七七",
+	"gender" : "女",
+	"age" : 20,
+	"bag" : {
+		"1" : {
+			"items" : {
+				"9" : {
+					"code" : 1001
+				},
+				"11" : {
+					"code" : 1000
+				}
+			}
+		},
+		"6" : {
+			"items" : {
+				"9" : {
+					"code" : 1002
+				},
+				"11" : {
+					"code" : 1000
+				}
+			}
+		}
+	}
+}
+{
+	"_id" : ObjectId("5c948e04a0bdd2c56dbbf55a"),
+	"author" : "八神",
+	"gender" : "男",
+	"age" : 20,
+	"bag" : {
+		"6" : {
+			"items" : {
+				"9" : {
+					"code" : 1001
+				},
+				"11" : {
+					"code" : 1000
+				}
+			}
+		},
+		"7" : {
+			"items" : {
+				"9" : {
+					"code" : 2001
+				},
+				"11" : {
+					"code" : 2000
+				}
+			}
+		}
+	}
+}
+> 
+``` 
+
+
+
 
